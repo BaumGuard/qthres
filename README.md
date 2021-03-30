@@ -9,8 +9,8 @@ With this small commandline tool written in java you can resolve a maidenhead lo
 <br />
 **Installation**<br />
 Just execute the following command in the commandline:<br />
-`cd && git clone https://www.github.com/BaumGuard/qthres && echo "alias qthres='java -jar ~/qthres/qthres.jar'" >> ~/.bashrc && nano ~/qthres/qth.txt`<br />
-Substitude `0.0,0.0` by the coordinates (lat,lon) or the locator of your QTH. Make sure there are no spaces in the line.<br />
+`cd && git clone https://www.github.com/BaumGuard/qthres && echo "alias qthres='java -jar ~/qthres/qthres.jar'" >> ~/.bashrc && nano ~/qthres/qth.txt && exec bash`<br />
+Replace `0.0,0.0` by the coordinates (lat,lon) or the locator of your QTH. Make sure there are no spaces in the line.<br />
 <br />
 <br />
 **How to use**<br />
@@ -25,7 +25,3 @@ csrsl comes with four options which you can add after the locator/callsign:<br /
 `imp`: Use miles for the distance instead of km<br />
 
 Of course, you can also use more than one option.<br />
-
-You can add the following line in `~/.bashrc` for accessing qhtres easier and faster from everywhere:<br />
-`alias qhtres='java -jar ~/qhtres/qthres.jar'`<br />
-Run `exec bash` or reboot your system after having included the line in `.bashrc`.<br />
