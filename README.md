@@ -8,15 +8,9 @@ With this small commandline tool written in java you can resolve a maidenhead lo
 <br />
 <br />
 **Installation**<br />
-`cd`<br />
-`git clone https://www.github.com/BaumGuard/qthres`<br />
-This will download the source folder of `qhtres` into your home directory.<br />
-
-You don't have to compile the source code, since I've done that already :-).<br />
-
-The executable file is called `qhtres.jar`<br />
-
-Enter your coordinates or your locator in `~/qhtres/qth.txt`, because otherways you will get wrong distances.<br />
+Just execute the following command in the commandline:<br />
+`cd && git clone https://www.github.com/BaumGuard/qthres && echo "alias qthres='java -jar ~/qthres/qthres.jar'" >> ~/.bashrc && nano ~/qthres/qth.txt`<br />
+Substitude `0.0,0.0` by the coordinates (lat,lon) or the locator of your QTH. Make sure there are no spaces in the line.<br />
 <br />
 <br />
 **How to use**<br />
