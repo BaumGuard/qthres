@@ -14,8 +14,7 @@ Replace `0.0,0.0` by the coordinates (lat,lon) or the locator of your QTH. Make 
 <br />
 <br />
 **How to use**<br />
-`cd ~/qhtres`<br />
-`java -jar qhtres.jar [locator/callsign] [options]`<br />
+`qthres [locator/callsign] [options]`<br />
 
 csrsl comes with four options which you can add after the locator/callsign:<br />
 `help`: shows the help dialog<br />
