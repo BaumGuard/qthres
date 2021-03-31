@@ -14,7 +14,7 @@ Replace `0.0,0.0` by the coordinates (lat,lon) or the locator of your QTH. Make 
 <br />
 <br />
 **How to use**<br />
-`qthres [locator/callsign] [options]`<br />
+`qthres [locator/callsign/coordinates(lat,lon)] [options]`<br />
 
 csrsl comes with four options which you can add after the locator/callsign:<br />
 `help`: shows the help dialog<br />
@@ -22,5 +22,6 @@ csrsl comes with four options which you can add after the locator/callsign:<br /
 `nodist`: Only show coordinates<br />
 `distonly`: Only show distance<br />
 `imp`: Use miles for the distance instead of km<br />
+`swap`: Output the coordinates in the format lon,lat<br />
 
 Of course, you can also use more than one option.<br />
