@@ -10,7 +10,7 @@ With this small commandline tool written in java you can resolve a maidenhead lo
 **Installation**<br />
 Just execute the following command in the commandline:<br />
 `cd && git clone https://www.github.com/BaumGuard/qthres && echo "alias qthres='java -jar ~/qthres/qthres.jar'" >> ~/.bashrc && nano ~/qthres/qth.txt && exec bash`<br />
-Replace `0.0,0.0` by the coordinates (lat,lon) or the locator of your QTH. Make sure there are no spaces in the line.<br />
+Replace `0.0,0.0` by the coordinates (lat,lon) or the locator (more inaccurate results) of your QTH. Make sure there are no spaces in the line.<br />
 <br />
 <br />
 **How to use**<br />
