@@ -1,0 +1,24 @@
+Unfortunately, it is quite complicated to implement a well functioning error management in qthres so this file provides help and hints to get rid of errors. If there is an error in the program, you will be prompted with a stack trace that shows exactely where the error has occured in the source code. In the top you will find the kind of error (e. g. FileNotFoundException). I will list up a couple of these error that can occure and I will give you hints how you can solve them.
+
+
+
+FileNotFoundException
+Please check if qth.txt is located in your home directory
+    Linux:      /home/<user>/qthres
+    Windows:    C:\Users\<User>/qthres
+   
+   
+InvocationTargetException
+This might be an error you can not avoid. Some callsigns are not available on qrzcq.com which is qthres's callsign source. Sometimes, no locator is available on qrzcq.com so qthres won't be able to resolve the position of the callsign.
+
+You can also check whether you have entered the locator/callsign/coordinates correctly.
+For coordinates (lat,lon) please keep in mind that there is no space between , and lon!
+
+If you have entered a callsign and you are not connected to the internet, you will also be prompted with that exception. Furthermore, it is possible that something blocks the connection like a firewall, a pi-hole or maybe the government if you are living in a country where websites are censored.
+
+Also make sure that the locator/callsign/coordinates is the first argument after the invocation of qthres.
+
+
+
+Please don't move the directory of qthres to another place than your home directory or rename the folder or the files.
+There is an exception if you are using Windows: After having downloaded and unzipped the package, you have to rename "qthres-main" to "qthres" and move the folder from your download folder to your home directory.
