@@ -22,7 +22,7 @@ For executing, navigate to the folder qthres in your home directory and start qt
 Linux: `qthres [locator/callsign/coordinates(lat,lon)] [options]`<br />
 Windows: `java -jar qthres.jar [locator/callsign/coordinates(lat,lon)] [options]`<br />
 
-csrsl comes with four options which you can add after the locator/callsign:<br />
+qthres comes with four options which you can add after the locator/callsign:<br />
 `help`: shows the help dialog<br />
 `map`: displays the locator/callsign and the distance on a map (luftlinie.org)<br />
 `nodist`: Only show coordinates<br />
