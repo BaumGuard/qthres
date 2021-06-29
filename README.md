@@ -24,7 +24,7 @@ Windows: `java -jar qthres.jar [locator/callsign/coordinates(lat,lon)] [options]
 
 qthres comes with four options which you can add after the locator/callsign:<br />
 `help`: Show the help dialog<br />
-`map`: Display the locator/callsign and the distance on a map (luftlinie.org)<br />
+`map`: Show the locator/callsign and the distance on a map (luftlinie.org)<br />
 `page`: Open the webpage (qrzcq.com) of the callsign<br />
 `nodist`: Only show coordinates<br />
 `distonly`: Only show distance<br />
