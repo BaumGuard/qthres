@@ -1,5 +1,5 @@
 # qthres<br />
-
+Click [here](https://github.com/BaumGuard/gqthres) to get to the newer graphical `gqthres`.<br /><br />
 With this small commandline tool written in java you can resolve a maidenhead locator and calculate the distance to it from your QTH. You can also enter a callsign and qthres will resolve its locator from qrzcq.com. Furthermore, qthres also has the ability to show the position and the distance of your locator/callsign on a map. There is also the possibility to convert coordinates into a locator.<br />
 <br />
 <br />
