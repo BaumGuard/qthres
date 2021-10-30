@@ -22,6 +22,30 @@ public class qthres {
 	String[] Capitals = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S",
 			"T", "U", "V", "W", "X" };
 
+	public static String GetCoordinates(String callsign) {
+
+		String url = "https://www.qrzcq.com/call/" + callsign;
+
+		String html = null;
+
+		int csindex;
+
+		try {
+			html = Jsoup.connect(url).get().html();
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+		}
+
+		csindex = html.indexOf("Latitude");
+		String latqrzcq = html.substring(csindex + 45, csindex + 54);
+		csindex = html.indexOf("Longitude");
+		String lonqrzcq = html.substring(csindex + 46, csindex + 55);
+
+		return latqrzcq + "," + lonqrzcq;
+	}
+	
+	
 	// Converting the qth locator to coordinates
 	public static String Convert(String inputStr) {
 
@@ -105,6 +129,28 @@ public class qthres {
 				/ (2 * Math.PI)) * 40030;
 		distance = Math.round(distance * 100) / 100.0;
 	}
+	
+	public static String GetCountry(String callsign) {
+		String urlqrz = "https://www.qrz.com/db/" + callsign;
+		String htmlqrz = null;
+
+		try {
+			htmlqrz = Jsoup.connect(urlqrz).get().html();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		int csindex;
+
+		csindex = htmlqrz.indexOf("DX Atlas for:");
+		String country = htmlqrz.substring(csindex + 14, csindex + 50);
+		csindex = country.indexOf(">");
+		country = country.substring(0, csindex - 1);
+
+		return country;
+
+	}
 
 	public static boolean isNumeric(String strNum) {
 		if (strNum == null) {
@@ -118,6 +164,16 @@ public class qthres {
 		return true;
 	}
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public static void main(String[] args) {
 
 		// Help dialog
@@ -198,51 +254,41 @@ public class qthres {
 
 					// Downloading the callsign's page from qrzcq.com
 
-					String url = "https://www.qrzcq.com/call/" + inputStr;
-					String html = null;
-					int csindex;
+					String coords = GetCoordinates(args[0]);
+//					System.out.println(coords);
+					
 
-					try {
-						html = Jsoup.connect(url).get().html();
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
-					}
+					coordArray = coords.split(",");
+					latComp=Double.parseDouble(coordArray[0]);
+					longComp=Double.parseDouble(coordArray[1]);
 
-					// Extracting the locator
-					if (html.contains("locator supplied by user") == true) {
-						csindex = html.indexOf("locator supplied by user");
-						locator = html.substring(csindex + 26, csindex + 32);
-					}
 
-					else {
-						csindex = html.indexOf("Locator");
-						locator = html.substring(csindex + 44, csindex + 50);
-					}
-
-					Convert(locator);
-					coordArray = coordinates.split(",");
-
-					Distance(qthlat, qthlon, Double.parseDouble(coordArray[0]), Double.parseDouble(coordArray[1]));
+					Distance(qthlat, qthlon, latComp, longComp);
+					
 
 				}
 				
 				if (inputArr.length<=6 && isNumeric(inputArr[2]) == true && isNumeric(inputArr[3]) == true) {
 
-					locator = args[0];
+					Convert(args[0]);
 				}
 				
 
 				if (args[0].equals("help") == false && args.length == 1) {
-					Convert(locator);
+
 					Distance(qthlat, qthlon, latComp, longComp);
 
 					System.out.println(latComp + "," + longComp);
 					System.out.println(distance + " km");
+					
+					try {
+					System.out.println(GetCountry(args[0]));}
+					catch (Exception e) {};
 				}
 
 				if (args[0].equals("help") == false && args.length > 1) {
 
-					Convert(locator);
+
 					Distance(qthlat, qthlon, latComp, longComp);
 
 					if (valid.contains("swap")) {
@@ -313,6 +359,7 @@ public class qthres {
 						
 
 						if (valid.contains("map")) {
+
 							System.out.println(latComp + "," + longComp);
 							System.out.println(distStr);
 
@@ -320,11 +367,11 @@ public class qthres {
 							try {
 								if (user.contains("/home")) {
 									p = Runtime.getRuntime()
-											.exec("firefox https://www.luftlinie.org/" + line + "/" + coordinates);
+											.exec("firefox https://www.luftlinie.org/" + line + "/" + latComp+","+longComp);
 								} else {
 									p = Runtime.getRuntime().exec(
 											"C:\\/Program Files/\\/Mozilla Firefox/\\firefox.exe https://www.luftlinie.org/"
-													+ line + "/" + coordinates);
+													+ line + "/" + latComp+","+longComp);
 								}
 								;
 							} catch (IOException e) {
@@ -333,7 +380,7 @@ public class qthres {
 							}
 						}
 						if (args[1].equals("imp") && args.length == 2) {
-							System.out.println(coordinates);
+							System.out.println(latComp+","+longComp);
 							System.out.println(distStr);
 						}
 
